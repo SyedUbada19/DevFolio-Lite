@@ -7,4 +7,5 @@ export default defineConfig({
   integrations: [tailwind()],
   output: 'server',
   adapter: vercel(),
+  // Forcing a new commit
 });
