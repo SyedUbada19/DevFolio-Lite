@@ -44,7 +44,7 @@ import Layout from "../layouts/Layout.astro"
 
     <!-- Visitor Count Section -->
     <section class="section visitor-section p-10 rounded-3xl shadow-2xl bg-gradient-to-br from-green-900/80 to-green-700/80 backdrop-blur-md border border-green-400/20 flex items-center justify-between">
-      <span class="text-xl font-semibold text-green-200 flex items-center gap-2">💡 Total Visitors: <span id="visitor-count" class="font-mono text-2xl text-green-100">&lt;dynamic_count&gt;</span></span>
+      <span class="text-xl font-semibold text-green-200 flex items-center gap-2">💡 Total Visitors: <span id="visitor-count" class="font-mono text-2xl text-green-100">--</span></span>
       <span class="text-4xl opacity-20">👁️</span>
     </section>
 
@@ -155,15 +155,3 @@ import Layout from "../layouts/Layout.astro"
     text-decoration: underline;
   }
 </style>
-
-<script is:inline>
-  window.addEventListener('DOMContentLoaded', async () => {
-    try {
-      const res = await fetch('/api/visitors.json');
-      const data = await res.json();
-      document.getElementById('visitor-count').textContent = data.count;
-    } catch (e) {
-      document.getElementById('visitor-count').textContent = 'N/A';
-    }
-  });
-</script>

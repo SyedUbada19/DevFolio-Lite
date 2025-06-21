@@ -4,6 +4,7 @@ export interface Props {
 }
 
 const { title } = Astro.props
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <!DOCTYPE html>
@@ -17,8 +18,8 @@ const { title } = Astro.props
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta property="og:image" content="/banner.png" />
-    <meta property="og:url" content="https://saadpasta.github.io/" />
+    <meta property="og:image" content={new URL("/banner.png", Astro.site)} />
+    <meta property="og:url" content={canonicalURL} />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600&display=swap"
