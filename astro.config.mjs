@@ -6,4 +6,5 @@ export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
   // No adapter needed for a standard static build
+  // Triggering another build for Netlify
 });
